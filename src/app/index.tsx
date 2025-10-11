@@ -3,7 +3,7 @@ import '../../global.css';
 
 export default function Index() {
     return (
-        <View>
+        <View className="flex-1 bg-white justify-center items-center">
             <Text>Stilo Kids!</Text>
         </View>
     );
