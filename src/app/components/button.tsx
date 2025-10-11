@@ -22,6 +22,14 @@ export const IconButton = ({ children, style, onPress, ...rest}: Props) => {
     )
 }
 
+export const AddButton = ({ children, style, onPress, ...rest}: Props) => {
+    return (
+        <TouchableOpacity style={styles.addButton} onPress={onPress} {...rest}>
+            {children}
+        </TouchableOpacity>
+    )
+}
+
 const styles = StyleSheet.create({
     simpleButton: {
         backgroundColor: colors.AZUL,
@@ -37,6 +45,16 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         paddingVertical: 3,
         paddingHorizontal: 3,
+        borderRadius: 10,
+        alignSelf: "flex-start",
+    },
+    addButton: {
+        backgroundColor: colors.LARANJA,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        paddingVertical: 10,
+        paddingHorizontal: 20,
         borderRadius: 10,
         alignSelf: "flex-start",
     }
