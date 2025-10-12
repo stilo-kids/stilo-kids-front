@@ -1,19 +1,19 @@
 import React from "react";
-import ArrowLeft from "../assets/icons/ARROW-LEFT.svg";
-import ArrowRight from "../assets/icons/ARROW-RIGHT.svg";
-import Chart from "../assets/icons/CHART.svg";
-import Edit from "../assets/icons/EDIT.svg";
-import Eye from "../assets/icons/EYE.svg";
-import Help from "../assets/icons/HELP.svg";
-import Home from "../assets/icons/HOME.svg";
-import Money from "../assets/icons/MONEY.svg";
-import Package from "../assets/icons/PACKAGE.svg";
-import PieChart from "../assets/icons/PIE-CHART.svg";
-import Plus from "../assets/icons/PLUS.svg";
-import Settings from "../assets/icons/SETTINGS.svg";
-import Shirt from "../assets/icons/SHIRT.svg";
-import Trash from "../assets/icons/TRASH.svg";
-import Truck from "../assets/icons/TRUCK.svg";
+import ArrowLeft from "../app/assets/icons/ARROW-LEFT.svg";
+import ArrowRight from "../app/assets/icons/ARROW-RIGHT.svg";
+import Chart from "../app/assets/icons/CHART.svg";
+import Edit from "../app/assets/icons/EDIT.svg";
+import Eye from "../app/assets/icons/EYE.svg";
+import Help from "../app/assets/icons/HELP.svg";
+import Home from "../app/assets/icons/HOME.svg";
+import Money from "../app/assets/icons/MONEY.svg";
+import Package from "../app/assets/icons/PACKAGE.svg";
+import PieChart from "../app/assets/icons/PIE-CHART.svg";
+import Plus from "../app/assets/icons/PLUS.svg";
+import Settings from "../app/assets/icons/SETTINGS.svg";
+import Shirt from "../app/assets/icons/SHIRT.svg";
+import Trash from "../app/assets/icons/TRASH.svg";
+import Truck from "../app/assets/icons/TRUCK.svg";
 import { View } from "react-native";
 
 export const ArrowLeftIcon = () => {
