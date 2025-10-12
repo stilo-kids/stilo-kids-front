@@ -15,7 +15,7 @@ const buttonVariants = cva(
         gray: 'bg-gray',
         white: 'bg-white',
         black: 'bg-black',
-        iconbutton: 'py-[3] px-[3]',
+        iconbutton: 'px[3] py[1] rounded-[8]',
         addButtonWhite: 'flex-row justify-between py-[10] px-[20]',
         addButtonBlack: 'flex-row justify-between py-[10] px-[20]'
       },
@@ -61,9 +61,9 @@ const buttonTextVariants = cva('text-center font-bold', {
 interface ButtonProps
   extends React.ComponentPropsWithoutRef<typeof TouchableOpacity>,
     VariantProps<typeof buttonVariants> {
-  label: string;
+  label?: string;
   labelClasses?: string;
-  icon?: React.ReactNode;
+  icon?: () => React.JSX.Element;
 }
 function Button({
   label,
@@ -76,18 +76,18 @@ function Button({
 }: ButtonProps) {
   return (
     <TouchableOpacity
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size}), className )}
       {...props}
     >
       
       <Text
         className={cn(
-          buttonTextVariants({ variant, size, className: labelClasses })
+          buttonTextVariants({ variant, size}), labelClasses
         )}
       >
         {label}
       </Text>
-      <View>{icon}</View>
+      {icon?.()}
     </TouchableOpacity>
   );
 }
