@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 
-import { cn } from '../lib/utils';
+import { cn } from '../app/lib/utils';
 
 // Extra types to you if you need :)
 export interface ISelectedOption {

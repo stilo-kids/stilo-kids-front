@@ -1,7 +1,7 @@
 import { type VariantProps, cva } from 'class-variance-authority';
 import { Text, View, TouchableOpacity } from 'react-native';
 
-import { cn } from '../lib/utils';
+import { cn } from '../app/lib/utils';
 
 const buttonVariants = cva(
   'items-center justify-center self-start py-[10] px-[20] rounded-[10]',

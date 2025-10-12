@@ -1,9 +1,9 @@
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router";
 import '../../global.css';
 import { useFonts, Poppins_400Regular, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 import { useEffect } from "react";
 import { Text } from "react-native";
-import Loading from "./components/loading";
+import Loading from "../components/Loading";
 
 export default function RootLayout() {
     const [fontsLoaded] = useFonts({
@@ -22,5 +22,10 @@ export default function RootLayout() {
             <Loading/>
         )
     }
-    return <Stack screenOptions={{headerShown: false}}/>;
+    return(
+        <Tabs>
+            <Tabs.Screen name="index"/>
+            <Tabs.Screen name="product"/>
+        </Tabs>
+    )
 }
