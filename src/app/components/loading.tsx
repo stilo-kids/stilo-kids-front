@@ -6,7 +6,7 @@ import { colors } from "../../theme/colors";
 export default function Loading() {
     return (
         <View style={styles.container}>
-            <ActivityIndicator size="large" color={colors.AZUL}/>
+            <ActivityIndicator size="large" color={colors.blue}/>
             <TextRegular>Carregando...</TextRegular>
         </View>
     )
