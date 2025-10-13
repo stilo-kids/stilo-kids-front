@@ -56,7 +56,7 @@ export default function RootLayout() {
             }}
             tabBar={({ state, descriptors, navigation }) => (
                 <View className={cn(
-                    "bg-blue rounded-xl py-[10] px-[5] self-start flex-row justify-between mx-2",
+                    "bg-blue rounded-xl py-[6] px-[12] w-96 flex-row justify-between mx-2",
                     "absolute bottom-5 left-1/2 -translate-x-1/2 shadow-md",
                 )}
                 style={{ minWidth: 320 }}>
