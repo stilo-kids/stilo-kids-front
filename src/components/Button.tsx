@@ -4,7 +4,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { cn } from '../app/lib/utils';
 
 const buttonVariants = cva(
-  'items-center justify-center self-start py-[10] px-[20] rounded-[10]',
+  'items-center justify-center w-auto py-[10] px-[20] rounded-[10]',
   {
     variants: {
       variant: {
@@ -17,7 +17,8 @@ const buttonVariants = cva(
         black: 'bg-black',
         iconbutton: 'px[3] py[1] rounded-[8]',
         addButtonWhite: 'flex-row justify-between py-[10] px-[20]',
-        addButtonBlack: 'flex-row justify-between py-[10] px-[20]'
+        addButtonBlack: 'flex-row justify-between py-[10] px-[20]',
+        cardButton: 'p-0',
       },
       size: {
         default: 'h-10 px-4',
@@ -45,6 +46,7 @@ const buttonTextVariants = cva('text-center font-bold', {
       iconbutton: 'none',
       addButtonWhite: 'text-white',
       addButtonBlack: 'text-black',
+      cardButton: 'text-black',
     },
     size: {
       default: 'text-base',
@@ -64,6 +66,7 @@ interface ButtonProps
   label?: string;
   labelClasses?: string;
   icon?: () => React.JSX.Element;
+  children?: React.ReactNode;
 }
 function Button({
   label,
@@ -72,6 +75,7 @@ function Button({
   variant,
   size,
   icon,
+  children,
   ...props
 }: ButtonProps) {
   return (
@@ -88,6 +92,7 @@ function Button({
         {label}
       </Text>
       {icon?.()}
+      {children}
     </TouchableOpacity>
   );
 }
