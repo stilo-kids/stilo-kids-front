@@ -5,7 +5,8 @@ import { useEffect } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import Loading from "../components/Loading";
 import { cn } from "./lib/utils";
-import { TruckIcon, ShirtIcon, HomeIcon, ChartIcon, PackageIcon, MoneyIcon } from "../components/icon";
+import { HelpIcon, SettingsIcon, TruckIcon, ShirtIcon, HomeIcon, ChartIcon, PackageIcon, MoneyIcon } from "../components/icon";
+import { colors } from "../theme/colors";
 
 export default function RootLayout() {
     const [fontsLoaded] = useFonts({
@@ -27,7 +28,23 @@ export default function RootLayout() {
     return(
         <Tabs 
             screenOptions={{ 
-                headerShown: false,
+                headerStyle: { backgroundColor: colors.white },
+                headerTitleAlign: 'left',
+                headerTitleStyle: {
+                    fontFamily: 'Poppins_600SemiBold',
+                    fontSize: 18,
+                    color: colors.black
+                },
+                headerRight: () => (
+                    <View className="flex-row gap-1 mr-10">
+                        <TouchableOpacity>
+                            <HelpIcon color="black"/>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <SettingsIcon color="black"/>
+                        </TouchableOpacity>
+                    </View>
+                ),
                 tabBarShowLabel: false,
                 tabBarStyle: {
                     backgroundColor: "transparent",
@@ -85,12 +102,12 @@ export default function RootLayout() {
                     })}
                 </View>
             )}>
-                <Tabs.Screen name="supplier" />
-                <Tabs.Screen name="product" />
-                <Tabs.Screen name="index" />
-                <Tabs.Screen name="sale" />
-                <Tabs.Screen name="stock" />
-                <Tabs.Screen name="financial" />
+                <Tabs.Screen name="supplier" options={{title: "Fornecedores", }}/>
+                <Tabs.Screen name="product" options={{title: "Produtos", }}/>
+                <Tabs.Screen name="index" options={{title: "Início", }} />
+                <Tabs.Screen name="sale" options={{title: "Vendas", }} />
+                <Tabs.Screen name="stock" options={{title: "Estoque", }}/>
+                <Tabs.Screen name="financial" options={{title: "Finanças", }}/>
             </Tabs>
     )
 }

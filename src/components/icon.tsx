@@ -15,123 +15,38 @@ import Shirt from "../app/assets/icons/SHIRT.svg";
 import Trash from "../app/assets/icons/TRASH.svg";
 import Truck from "../app/assets/icons/TRUCK.svg";
 import { View } from "react-native";
+import { colors } from "../theme/colors";
 
-export const ArrowLeftIcon = () => {
-    return (
-        <View>
-            <ArrowLeft width={36} height={36} />
-        </View>
-    )
-}
+type IconProps = {
+  size?: number;
+  color?: string;
+};
 
-export const ArrowRightIcon = () => {
-    return (
-        <View>
-            <ArrowRight width={36} height={36} />
-        </View>
-    )
-}
+const withIcon =
+  (IconComponent: React.FC<any>) =>
+  ({ size = 36, color }: IconProps) =>
+    (
+      <View>
+        <IconComponent
+          width={size}
+          height={size}
+          {...(color ? { stroke: color } : {})}
+        />
+      </View>
+    );
 
-export const ChartIcon = () => {
-    return (
-        <View>
-            <Chart width={36} height={36} />
-        </View>
-    )
-}
-
-export const EditIcon = () => {
-    return (
-        <View>
-            <Edit width={36} height={36} />
-        </View>
-    )
-}
-
-export const EyeIcon = () => {
-    return (
-        <View>
-            <Eye width={36} height={36} />
-        </View>
-    )
-}
-
-export const HelpIcon = () => {
-    return (
-        <View>
-            <Help width={36} height={36} />
-        </View>
-    )
-}
-
-export const HomeIcon = () => {
-    return (
-        <View>
-            <Home width={36} height={36} />
-        </View>
-    )
-}
-
-export const MoneyIcon = () => {
-    return (
-        <View>
-            <Money width={36} height={36} />
-        </View>
-    )
-}
-
-export const PackageIcon = () => {
-    return (
-        <View>
-            <Package width={36} height={36} />
-        </View>
-    )
-}
-
-export const PieChartIcon = () => {
-    return (
-        <View>
-            <PieChart width={36} height={36} />
-        </View>
-    )
-}
-
-export const PlusIcon = () => {
-    return (
-        <View>
-            <Plus width={36} height={36} />
-        </View>
-    )
-}
-
-export const SettingsIcon = () => {
-    return (
-        <View>
-            <Settings width={36} height={36} />
-        </View>
-    )
-}
-
-export const ShirtIcon = () => {
-    return (
-        <View>
-            <Shirt width={36} height={36} />
-        </View>
-    )
-}
-
-export const TrashIcon = () => {
-    return (
-        <View>
-            <Trash width={36} height={36} />
-        </View>
-    )
-}
-
-export const TruckIcon = () => {
-    return (
-        <View>
-            <Truck width={36} height={36} />
-        </View>
-    )
-}
+export const ArrowLeftIcon = withIcon(ArrowLeft);
+export const ArrowRightIcon = withIcon(ArrowRight);
+export const ChartIcon = withIcon(Chart);
+export const EditIcon = withIcon(Edit);
+export const EyeIcon = withIcon(Eye);
+export const HelpIcon = withIcon(Help);
+export const HomeIcon = withIcon(Home);
+export const MoneyIcon = withIcon(Money);
+export const PackageIcon = withIcon(Package);
+export const PieChartIcon = withIcon(PieChart);
+export const PlusIcon = withIcon(Plus);
+export const SettingsIcon = withIcon(Settings);
+export const ShirtIcon = withIcon(Shirt);
+export const TrashIcon = withIcon(Trash);
+export const TruckIcon = withIcon(Truck);
