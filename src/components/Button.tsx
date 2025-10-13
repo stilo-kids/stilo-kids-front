@@ -18,7 +18,7 @@ const buttonVariants = cva(
         iconbutton: 'px[3] py[1] rounded-[8]',
         addButtonWhite: 'flex-row justify-between py-[10] px-[20]',
         addButtonBlack: 'flex-row justify-between py-[10] px-[20]',
-        cardButton: 'p-0',
+        cardButton: 'p-0 flex-col',
       },
       size: {
         default: 'h-10 px-4',
@@ -83,14 +83,16 @@ function Button({
       className={cn(buttonVariants({ variant, size}), className )}
       {...props}
     >
-      
-      <Text
-        className={cn(
-          buttonTextVariants({ variant, size}), labelClasses
-        )}
-      >
-        {label}
-      </Text>
+      {variant !== 'cardButton' && (
+        <Text
+          className={cn(
+            buttonTextVariants({ variant, size }), 
+            labelClasses
+          )}
+        >
+          {label}
+        </Text>
+      )}
       {icon?.()}
       {children}
     </TouchableOpacity>
