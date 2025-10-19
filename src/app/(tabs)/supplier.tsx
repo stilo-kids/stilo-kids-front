@@ -1,4 +1,4 @@
-import tw from 'twrnc';
+import tw from "../../../tw";
 import { View, Text } from "react-native";
 import '../../../global.css';
 import { useRouter } from "expo-router";
