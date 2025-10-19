@@ -1,3 +1,4 @@
+import tw from 'twrnc';
 import { Text, View } from 'react-native';
 
 import { cn } from '../app/lib/utils';
@@ -8,7 +9,7 @@ function Card({
 }: React.ComponentPropsWithoutRef<typeof View>) {
   return (
     <View
-      className={cn('bg-white rounded-[10] px-6 py-6 border border-border border-black w-80 shadow-md', className)}
+      style={tw`bg-white rounded-[10] px-6 py-6 border border-border border-black w-80 shadow-md ${className || ''}`}
       {...props}
     />
   );
@@ -18,7 +19,7 @@ function CardHeader({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof View>) {
-  return <View className={cn('p-4', className)} {...props} />;
+  return <View style={tw`p-4 ${className || ''}`} {...props} />;
 }
 
 function CardTitle({
@@ -27,10 +28,7 @@ function CardTitle({
 }: React.ComponentPropsWithoutRef<typeof Text>) {
   return (
     <Text
-      className={cn(
-        'text-2xl font-semibold tracking-tight text-primary',
-        className
-      )}
+      style={tw`text-2xl font-semibold tracking-tight text-primary ${className || ''}`}
       {...props}
     />
   );
@@ -42,7 +40,7 @@ function CardDescription({
 }: React.ComponentPropsWithoutRef<typeof Text>) {
   return (
     <Text
-      className={cn('text-sm text-muted-foreground', className)}
+      style={tw`text-sm text-muted-foreground ${className || ''}`}
       {...props}
     />
   );
@@ -52,7 +50,7 @@ function CardContent({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof View>) {
-  return <View className={cn('p-4 pt-0', className)} {...props} />;
+  return <View style={tw`p-4 pt-0 ${className || ''}`} {...props} />;
 }
 
 // TODO: style
@@ -62,7 +60,7 @@ function CardFooter({
 }: React.ComponentPropsWithoutRef<typeof View>) {
   return (
     <View
-      className={cn(className, 'flex flex-row items-center p-4 pt-0')}
+      style={tw`flex flex-row items-center p-4 pt-0 ${className || ''}`}
       {...props}
     />
   );
@@ -86,22 +84,22 @@ function SimpleCard({
     <Card className={className}>
       <CardHeader>
         {title && (
-          <Text className="text-2xl font-semibold tracking-tight text-primary">
+          <Text style={tw`text-2xl font-semibold tracking-tight text-primary`}>
             {title}
           </Text>
         )}
         {description && (
-          <Text className="text-sm text-muted-foreground">{description}</Text>
+          <Text style={tw`text-sm text-muted-foreground`}>{description}</Text>
         )}
       </CardHeader>
       {content && (
         <CardContent>
-          <Text className="text-base text-primary">{content}</Text>
+          <Text style={tw`text-base text-primary`}>{content}</Text>
         </CardContent>
       )}
       {footer && (
         <CardFooter>
-          <Text className="text-sm text-muted-foreground">{footer}</Text>
+          <Text style={tw`text-sm text-muted-foreground`}>{footer}</Text>
         </CardFooter>
       )}
     </Card>

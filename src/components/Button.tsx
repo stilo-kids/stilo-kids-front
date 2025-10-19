@@ -1,3 +1,4 @@
+import tw from 'twrnc';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { Text, View, TouchableOpacity } from 'react-native';
 
@@ -80,15 +81,12 @@ function Button({
 }: ButtonProps) {
   return (
     <TouchableOpacity
-      className={cn(buttonVariants({ variant, size}), className )}
+      style={tw`${buttonVariants({ variant, size })} ${className || ''}`}
       {...props}
     >
       {variant !== 'cardButton' && (
         <Text
-          className={cn(
-            buttonTextVariants({ variant, size }), 
-            labelClasses
-          )}
+          style={tw`${buttonTextVariants({ variant, size })} ${labelClasses || ''}`}
         >
           {label}
         </Text>

@@ -7,6 +7,7 @@ import Loading from "../../components/Loading";
 import { cn } from "../lib/utils";
 import { HelpIcon, SettingsIcon, TruckIcon, ShirtIcon, HomeIcon, ChartIcon, PackageIcon, MoneyIcon } from "../../components/icon";
 import { colors } from "../../theme/colors";
+import tw from "../../../tw";
 
 export default function TabsLayout() {
     const [fontsLoaded] = useFonts({
@@ -22,12 +23,12 @@ export default function TabsLayout() {
 
     if (!fontsLoaded) {
         return (
-            <Loading/>
+            <Loading />
         )
     }
-    return(
-        <Tabs 
-            screenOptions={{ 
+    return (
+        <Tabs
+            screenOptions={{
                 headerStyle: { backgroundColor: colors.white },
                 headerTitleAlign: 'left',
                 headerTitleStyle: {
@@ -36,12 +37,12 @@ export default function TabsLayout() {
                     color: colors.black
                 },
                 headerRight: () => (
-                    <View className="flex-row gap-1 mr-10">
+                    <View style={tw`flex-row gap-1 mr-10`}>
                         <TouchableOpacity>
-                            <HelpIcon color="black"/>
+                            <HelpIcon color="black" />
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <SettingsIcon color="black"/>
+                            <SettingsIcon color="black" />
                         </TouchableOpacity>
                     </View>
                 ),
@@ -55,14 +56,13 @@ export default function TabsLayout() {
                 },
             }}
             tabBar={({ state, descriptors, navigation }) => (
-                <View className={cn(
-                    "bg-blue rounded-xl py-[6] px-[12] w-96 flex-row justify-between mx-2",
-                    "absolute bottom-5 left-1/2 -translate-x-1/2 shadow-md",
-                )}
-                style={{ minWidth: 320 }}>
+                <View style={[
+                    tw`bg-blue rounded-xl py-[6] px-[12] w-96 flex-row justify-between mx-auto mb-15 mt-5 shadow-md`,
+                    { minWidth: 320 },
+                ]}>
                     {state.routes.map((route, index) => {
                         const isFocused = state.index === index;
-                        
+
                         const onPress = () => {
                             const event = navigation.emit({
                                 type: 'tabPress',
@@ -75,26 +75,22 @@ export default function TabsLayout() {
                         };
 
                         const icons: Record<string, React.ReactNode> = {
-                            index: <HomeIcon/>,
-                            product: <ShirtIcon/>,
-                            supplier: <TruckIcon/>,
-                            sale: <ChartIcon/>,
-                            stock: <PackageIcon/>,
-                            financial: <MoneyIcon/>
+                            index: <HomeIcon />,
+                            product: <ShirtIcon />,
+                            supplier: <TruckIcon />,
+                            sale: <ChartIcon />,
+                            stock: <PackageIcon />,
+                            financial: <MoneyIcon />
                         };
 
                         return (
                             <TouchableOpacity
                                 key={route.key}
                                 onPress={onPress}
-                                className={cn(
-                                    "items-center justify-center mx-1",
-                                    "rounded-xl aspect-square transition-all duration-300",
-                                    isFocused ? "bg-orange" : "bg-transparent",
-                                )}
-                                style={{
-                                    width: 40, height: 40
-                                }}>
+                                style={[
+                                    tw`items-center justify-center mx-1 rounded-xl aspect-square transition-all duration-300 ${isFocused ? "bg-orange" : "bg-transparent"}`,
+                                    { width: 40, height: 40 }
+                                ]}>
 
                                 {icons[route.name]}
                             </TouchableOpacity>
@@ -102,12 +98,12 @@ export default function TabsLayout() {
                     })}
                 </View>
             )}>
-                <Tabs.Screen name="supplier" options={{title: "Fornecedores", }}/>
-                <Tabs.Screen name="product" options={{title: "Produtos", }}/>
-                <Tabs.Screen name="index" options={{title: "Início", }} />
-                <Tabs.Screen name="sale" options={{title: "Vendas", }} />
-                <Tabs.Screen name="stock" options={{title: "Estoque", }}/>
-                <Tabs.Screen name="financial" options={{title: "Finanças", }}/>
-            </Tabs>
+            <Tabs.Screen name="supplier" options={{ title: "Fornecedores", }} />
+            <Tabs.Screen name="product" options={{ title: "Produtos", }} />
+            <Tabs.Screen name="index" options={{ title: "Início", }} />
+            <Tabs.Screen name="sale" options={{ title: "Vendas", }} />
+            <Tabs.Screen name="stock" options={{ title: "Estoque", }} />
+            <Tabs.Screen name="financial" options={{ title: "Finanças", }} />
+        </Tabs>
     )
 }

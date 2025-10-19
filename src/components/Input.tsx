@@ -1,3 +1,4 @@
+import tw from 'twrnc';
 import { forwardRef } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
@@ -11,13 +12,10 @@ export interface InputProps
 }
 const Input = forwardRef<React.ElementRef<typeof TextInput>, InputProps>(
   ({ className, label, labelClasses, inputClasses, ...props }, ref) => (
-    <View className={cn('flex flex-col gap-1.5', className)}>
-      {label && <Text className={cn('text-base', labelClasses)}>{label}</Text>}
+    <View style={tw`flex flex-col gap-1.5 ${className || ''}`}>
+      {label && <Text style={tw`text-base ${labelClasses || ''}`}>{label}</Text>}
       <TextInput
-        className={cn(
-          inputClasses,
-          'border-input  rounded-[10] px-3 py-3 border border-black w-96'
-        )}
+        style={tw`border-input rounded-[10] px-3 py-3 border border-black w-96 ${inputClasses || ''}`}
         {...props}
       />
     </View>

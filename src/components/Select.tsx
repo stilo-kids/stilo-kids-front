@@ -1,3 +1,4 @@
+import tw from 'twrnc';
 import React, { useRef, useState } from 'react';
 import {
   FlatList,
@@ -95,21 +96,18 @@ export const Select = ({
   };
 
   return (
-    <View className={cn('flex flex-col gap-1.5')}>
+    <View style={tw`flex flex-col gap-1.5`}>
       {label && (
-        <Text className={cn('text-base text-primary', labelClasses)}>
+        <Text style={tw`text-base text-primary ${labelClasses || ''}`}>
           {label}
         </Text>
       )}
       <TouchableOpacity
         ref={selectButtonRef}
-        className={cn(
-          selectClasses,
-          'border border-input py-2.5 px-4 rounded-lg bg-white border-black'
-        )}
+        style={tw`border border-input py-2.5 px-4 rounded-lg bg-white border-black ${selectClasses || ''}`}
         onPress={openDropdown}
       >
-        <Text className="text-primary">
+        <Text style={tw`text-primary`}>
           {selectedValue
             ? new_options.find(option => option.value === selectedValue)?.label
             : placeholder}
@@ -124,16 +122,18 @@ export const Select = ({
             onPress={() => setIsDropdownOpen(false)}
           >
             <View
-              style={{
-                top: dropdownPosition.y,
-                left: dropdownPosition.x,
-                width: dropdownPosition.width,
-                shadowOpacity: 0.2,
-                shadowOffset: { width: 0, height: 2 },
-                shadowRadius: 8,
-                elevation: 5,
-              }}
-              className="absolute bg-white shadow-sm p-2 rounded-md shadow-black dark:shadow-white"
+              style={[
+                {
+                  top: dropdownPosition.y,
+                  left: dropdownPosition.x,
+                  width: dropdownPosition.width,
+                  shadowOpacity: 0.2,
+                  shadowOffset: { width: 0, height: 2 },
+                  shadowRadius: 8,
+                  elevation: 5,
+                },
+                tw`absolute bg-white shadow-sm p-2 rounded-md shadow-black dark:shadow-white`
+              ]}
             >
               <FlatList
                 data={new_options}
@@ -141,9 +141,9 @@ export const Select = ({
                 renderItem={({ item }) => (
                   <TouchableOpacity
                     onPress={() => handleSelect(item.value)}
-                    className="p-2 border-b border-input"
+                    style={tw`p-2 border-b border-input`}
                   >
-                    <Text className="text-primary">{item.label}</Text>
+                    <Text style={tw`text-primary`}>{item.label}</Text>
                   </TouchableOpacity>
                 )}
               />

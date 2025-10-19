@@ -1,3 +1,4 @@
+import tw from 'twrnc';
 import { View, Text } from "react-native";
 import { Input } from "../../../components/Input";
 import { Select } from "../../../components/Select";
@@ -12,7 +13,7 @@ export default function Supplier() {
     const [selectedContact, setSelectedContact] = useState<string | number>();
 
     return (
-        <View className="flex-1 justify-center items-center">
+        <View style={tw`flex-1 justify-center items-center`}>
             <Input label="Nome"/>
             <Select label="Contato" labelKey="Contato" valueKey="Contato"/>
             <Select label="Endereço" labelKey="Contato" valueKey="Contato"/>

@@ -1,3 +1,4 @@
+import tw from 'twrnc';
 import { View, Text } from "react-native";
 import '../../../global.css';
 import { useRouter } from "expo-router";
@@ -10,11 +11,11 @@ export default function Index() {
     const router = useRouter();
 
     return (
-        <View className="flex-1 gap-5 flex-col items-center mt-8 ">
+        <View style={tw`flex-1 gap-5 flex-col items-center mt-8`}>
             <View>
                 <Button variant="cardButton" className="self-start h-auto">
                     <Card className="flex-row justify-between items-center py-5 border-blue">
-                        <Text className="font-semibold">Relatórios</Text>
+                        <Text style={tw`font-semibold`}>Relatórios</Text>
                         <ArrowRightIcon color="black"/>
                     </Card>
                 </Button> 
