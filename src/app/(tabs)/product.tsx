@@ -6,6 +6,11 @@ import { Button } from "../../components/Button";
 import { Card } from "../../components/Card";
 import { ArrowRightIcon } from "../../components/icon";
 
+/**
+ * Aqui não usa style com tw pois o Card é um componente customizado que
+ * aceita className como prop. Ou seja: na definição do Card, já existe um atributo style aplicado.
+ * Por isso, para manter a consistência, usa-se className aqui também (pois ele concatena o style padrão do card e o do className).
+ */
 export default function Index() {
 
     const router = useRouter();
