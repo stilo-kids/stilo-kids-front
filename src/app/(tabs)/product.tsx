@@ -10,11 +10,6 @@ import { useEffect, useState } from "react";
 import { Product, tableHeaders } from "../(stack)/(products)/types";
 import { getProducts } from "../(stack)/(products)/product-api";
 
-/**
- * Aqui não usa style com tw pois o Card é um componente customizado que
- * aceita className como prop. Ou seja: na definição do Card, já existe um atributo style aplicado.
- * Por isso, para manter a consistência, usa-se className aqui também (pois ele concatena o style padrão do card e o do className).
- */
 export default function Index() {
 
     const router = useRouter();
@@ -22,22 +17,28 @@ export default function Index() {
     const [products, setProducts] = useState<Array<Product>>([]);
 
     const transformProductsForTable = (products: Product[]) => {
-        return products.map(product => ({
+        const rows = products.map(product => ({
             id: product.id,
             name: product.name,
             suppliers: product.suppliers.map(s => s.name).join(', '),
             brand: product.brand.name,
             clothing_type: product.clothing_type.type,
             actions: (
-                <Button icon={() => <EyeIcon color="black"/>}></Button>
+                <Button icon={() => <EyeIcon color="black"/>} onPress={() => {
+                    router.push(`/(stack)/(products)/${product.id}`);
+                }}></Button>
             )
         }));
+
+
+        return rows;
     };
 
     const tableData = transformProductsForTable(products);
 
     useEffect(() => {
         getProducts().then((data) => {
+            console.log(data)
             setProducts(data);
         }).catch((error) => {
             console.error("Erro ao buscar produtos:", error);
@@ -54,7 +55,7 @@ export default function Index() {
                     </Card>
                 </Button> 
             </View>
-                <Table headers={tableHeaders} data={tableData} />
+            <Table headers={tableHeaders} data={tableData} />
             <Button onPress={() => router.push("/(stack)/(products)")} style={tw`px-10 bg-orange`} label="Adicionar novo" variant='orange'/>
         </View>
     );
