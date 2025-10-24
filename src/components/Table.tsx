@@ -72,6 +72,7 @@ function TableBody({ data, minColumnWidth = 120 }: { data: Array<Object>, minCol
 
 export function Table({ headers, data, style, minColumnWidth = 120 }: TableProps) {
     const totalMinWidth = headers.length * minColumnWidth;
+    console.log("Table data:", data, ' headers:', headers);
 
     return (
         <View style={[tw`w-80 shadow-lg  rounded-lg overflow-hidden bg-white `, style]}>
