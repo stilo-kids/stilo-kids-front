@@ -20,6 +20,7 @@ export interface ProductSupplier {
 
 export interface Product {
     id: number;
+    name: string;
     sale_price: number;
     cost_price: number;
     description: string;
@@ -28,3 +29,12 @@ export interface Product {
     clothing_type: ClothingType;
     clothing_size: ClothingSize;
 }
+
+export const tableHeaders = [
+    '#',
+    'Nome',
+    'Fornecedor',
+    'Marca',
+    'Tipo',
+    'Ações',
+];
