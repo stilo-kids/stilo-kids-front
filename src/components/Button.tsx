@@ -5,7 +5,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { cn } from '../app/lib/utils';
 
 const buttonVariants = cva(
-  'items-center justify-center w-auto py-[10] px-[20] rounded-[10]',
+  'items-center justify-center w-auto py-[10] px-[20] rounded-[2]',
   {
     variants: {
       variant: {
