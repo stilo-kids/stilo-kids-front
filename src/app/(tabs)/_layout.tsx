@@ -4,7 +4,6 @@ import { useFonts, Poppins_400Regular, Poppins_600SemiBold } from "@expo-google-
 import { useEffect } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import Loading from "../../components/Loading";
-import { cn } from "../lib/utils";
 import { HelpIcon, SettingsIcon, TruckIcon, ShirtIcon, HomeIcon, ChartIcon, PackageIcon, MoneyIcon } from "../../components/icon";
 import { colors } from "../../theme/colors";
 import tw from "../../../tw";

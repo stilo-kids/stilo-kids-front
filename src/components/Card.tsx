@@ -4,12 +4,12 @@ import { Text, View } from 'react-native';
 import { cn } from '../app/lib/utils';
 
 function Card({
-  className,
+  style,
   ...props
 }: React.ComponentPropsWithoutRef<typeof View>) {
   return (
     <View
-      style={tw`bg-white rounded-[10] px-6 py-6 border border-border border-black w-80 shadow-md ${className || ''}`}
+      style={[style, tw`bg-white rounded-[2] px-6 py-6 border w-80 shadow-md`]}
       {...props}
     />
   );

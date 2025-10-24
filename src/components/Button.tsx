@@ -63,7 +63,7 @@ const buttonTextVariants = cva('text-center font-bold', {
 
 interface ButtonProps
   extends React.ComponentPropsWithoutRef<typeof TouchableOpacity>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   label?: string;
   labelClasses?: string;
   icon?: () => React.JSX.Element;
@@ -72,7 +72,7 @@ interface ButtonProps
 function Button({
   label,
   labelClasses,
-  className,
+  style,
   variant,
   size,
   icon,
@@ -81,7 +81,7 @@ function Button({
 }: ButtonProps) {
   return (
     <TouchableOpacity
-      style={tw`${buttonVariants({ variant, size })} ${className || ''}`}
+      style={[tw`${buttonVariants({ variant, size })}`, style]}
       {...props}
     >
       {variant !== 'cardButton' && (
