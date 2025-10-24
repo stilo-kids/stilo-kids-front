@@ -1,11 +1,12 @@
 import api from "../../../../api";
 import { Product } from "./types";
 
-export const getProducts = async () => {
+export const getProducts = async (): Promise<Array<Product>> => {
     // Temporário, substituir pelo fetch real
     const products: Array<Product> = [
         {
             id: 1,
+            name: "Camiseta Infantil",
             sale_price: 100,
             cost_price: 80,
             description: "Camiseta Infantil",
@@ -30,6 +31,7 @@ export const getProducts = async () => {
         },
         {
             id: 2,
+            name: "Calça Infantil",
             sale_price: 150,
             cost_price: 120,
             description: "Calça Infantil",
@@ -78,7 +80,8 @@ export const deleteProduct = async (id: number) => {
 export const getProductById = async (id: number) => {
     // Implementar chamada à API para obter produto por ID
     const product: Product = {
-        id,
+        id: 1,
+        name: "Camiseta Infantil",
         sale_price: 100,
         cost_price: 80,
         description: "Camiseta Infantil",
